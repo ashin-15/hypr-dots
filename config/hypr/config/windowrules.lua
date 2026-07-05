@@ -36,7 +36,6 @@ hl.window_rule({
 hl.window_rule({
 	match = { class = "Spotify" },
 	float = true,
-	center = true,
 })
 
 -- Opacity Overrides
@@ -75,7 +74,7 @@ local modalMatches = {
 	{ class = "^(hyprland-share-picker)$" },
 }
 for _, m in ipairs(modalMatches) do
-	hl.window_rule({ match = m, 2, float = true, size = { "(monitor_w*0.35)", "(monitor_h*0.150)" } })
+	hl.window_rule({ match = m, 2, float = true, size = { "1200", "900" }, center = true })
 end
 
 -- Ignore maximize requests from all apps. You'll probably like this.
