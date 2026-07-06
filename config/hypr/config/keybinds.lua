@@ -69,10 +69,12 @@ hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"
 -------------------
 
 -- Screen Capture
--- hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(noctCall .. "plugin:screen-toolkit colorPicker"))
--- hl.bind("Print", hl.dsp.exec_cmd(noctCall .. "plugin:screen-toolkit annotate"))
--- hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(noctCall .. "plugin:screen-toolkit annotateWindow"))
--- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(noctCall .. "plugin:screen-toolkit toggle"))
+hl.bind(
+	"Print",
+	hl.dsp.exec_cmd('grim -g "$(slurp)" "$HOME/Pictures/Screenshots/$(Screenshot +"%Y-%m-%d_%H-%M-%S").png"')
+)
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd('grim -g "$(slurp)" - | wl-copy'))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(noctCall .. "plugin:screen-toolkit toggle"))
 
 -- Theming and Wallpaper
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(noctCall .. " wallpaper toggle"))
