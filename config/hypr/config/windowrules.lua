@@ -9,7 +9,7 @@ hl.window_rule({
 })
 
 -- Apps
-local primaryWorkspace = 1
+local primaryWorkspace = 2
 
 hl.window_rule({
 	match = { class = "^(.*\\.exe)$", float = true },
@@ -17,7 +17,6 @@ hl.window_rule({
 	center = true,
 	fullscreen_state = 0,
 })
-hl.window_rule({ match = { class = "^(vesktop|discord)$" }, primaryWorkspace })
 hl.window_rule({ match = { class = "^(.*[Cc]alculator.*)$" }, float = true, size = "380 616" })
 hl.window_rule({ match = { class = "^(org.kde.keditfiletype)$" }, float = true })
 hl.window_rule({ match = { class = "^(org.kde.ark)$" }, size = "(monitor_w*0.40) (monitor_h*0.40)" })
@@ -74,7 +73,7 @@ local modalMatches = {
 	{ class = "^(hyprland-share-picker)$" },
 }
 for _, m in ipairs(modalMatches) do
-	hl.window_rule({ match = m, 2, float = true, size = { "1200", "900" }, center = true })
+	hl.window_rule({ match = m, 2, float = true, size = { "1200", "900" }, center = true, primaryWorkspace })
 end
 
 -- Ignore maximize requests from all apps. You'll probably like this.

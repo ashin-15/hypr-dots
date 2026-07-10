@@ -3,4 +3,4 @@
 TERMINAL = "kitty"
 FILE_MANAGER = "thunar"
 BROWSER = "brave"
-EDITOR = "gnome-text-editor --new-window"
+EDITOR = "kitty -e nvim"

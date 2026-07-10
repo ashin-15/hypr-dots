@@ -6,9 +6,15 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
+HISTFILE=$HOME/.local/share/history/zsh_history
 HISTSIZE=1000
 SAVEHIST=10000
+
+### EXPORT
+export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
+
+# "bat" as manpager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
@@ -35,6 +41,25 @@ _comp_options+=(globdots)		# Include hidden files.
 
 autoload -Uz compinit
 compinit
+
+# Vi mode
+bindkey -v
+
+# Change cursor shape for different vi modes.
+function zle-keymap-select () {
+    case $KEYMAP in
+        vicmd) echo -ne '\e[1 q';;      # block
+        viins|main) echo -ne '\e[5 q';; # beam
+    esac
+}
+zle -N zle-keymap-select
+zle-line-init() {
+    zle -K viins # initiate `vi insert` as keymap (can be removed if `bindkey -V` has been set elsewhere)
+    echo -ne "\e[5 q"
+}
+zle -N zle-line-init
+echo -ne '\e[5 q' # Use beam shape cursor on startup.
+preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
 # Setting up path
 if [ -d "$HOME/.local/bin" ] ;
@@ -63,6 +88,19 @@ zinit light-mode for \
 
 ### End of Zinit's installer chunk
 
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH=~/.npm-global/bin:$PATH
+
+# bun completions
+[ -s "/home/ashin/.bun/_bun" ] && source "/home/ashin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# gbrain NIM credentials (key lives in chmod-600 ~/.gbrain/secrets.env)
+source ~/.gbrain/secrets.env
+
+# opencode
+export PATH=/home/ashin/.opencode/bin:$PATH
