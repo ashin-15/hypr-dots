@@ -1,0 +1,43 @@
+{
+  "todos": [
+    {
+      "id": 1783613840471,
+      "text": "When codebase, add rule by anshu",
+      "completed": false,
+      "createdAt": "2026-07-09T16:17:20.471Z",
+      "pageId": 0,
+      "priority": "medium",
+      "details": ""
+    },
+    {
+      "id": 1783531220346,
+      "text": "SIH Chodhikkanam",
+      "completed": true,
+      "createdAt": "2026-07-08T17:20:20.346Z",
+      "pageId": 0,
+      "priority": "low",
+      "details": ""
+    }
+  ],
+  "pages": [
+    {
+      "id": 0,
+      "name": "General"
+    }
+  ],
+  "current_page_id": 0,
+  "count": 2,
+  "completedCount": 1,
+  "showCompleted": true,
+  "showBackground": true,
+  "isExpanded": false,
+  "useCustomColors": false,
+  "priorityColors": {
+    "high": "#f44336",
+    "medium": "#2196f3",
+    "low": "#9e9e9e"
+  },
+  "exportPath": "~/Documents",
+  "exportFormat": "markdown",
+  "exportEmptySections": false
+}

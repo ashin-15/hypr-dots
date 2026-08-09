@@ -10,8 +10,9 @@ HISTFILE=$HOME/.local/share/history/zsh_history
 HISTSIZE=1000
 SAVEHIST=10000
 
-### EXPORT
-export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
+setopt hist_ignore_all_dups 
+setopt share_history       
+setopt append_history 
 
 # "bat" as manpager
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
@@ -36,11 +37,15 @@ zinit load hlissner/zsh-autopair
 # Auto complete with case insenstivity
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*' menu select
+
 zmodload zsh/complist
 _comp_options+=(globdots)		# Include hidden files.
 
 autoload -Uz compinit
 compinit
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
 # Vi mode
 bindkey -v
@@ -70,8 +75,8 @@ if [ -d "$HOME/.local/share/npm/bin" ] ;
   then PATH="$HOME/.local/share/npm/bin:$PATH"
 fi
 
-if [ -d "$HOME/.config/emacs/bin/" ] ;
-  then PATH="$HOME/.config/emacs/bin:$PATH"
+if [ -d "$HOME/.cargo/bin" ] ;
+  then PATH="$HOME/.cargo/bin:$PATH"
 fi
 
 alias ls='exa -l --icons'
@@ -104,3 +109,6 @@ source ~/.gbrain/secrets.env
 
 # opencode
 export PATH=/home/ashin/.opencode/bin:$PATH
+
+# Added by codebase-memory-mcp install
+export PATH="/home/ashin/.local/bin:$PATH"
