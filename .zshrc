@@ -23,7 +23,7 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 #powerlevel10k theme
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light romkatv/powerlevel10k
 
 # Syntax highlighting and autosuggestions
 zinit light zdharma-continuum/fast-syntax-highlighting
@@ -79,8 +79,8 @@ if [ -d "$HOME/.cargo/bin" ] ;
   then PATH="$HOME/.cargo/bin:$PATH"
 fi
 
-alias ls='exa -l --icons'
-alias tree='exa --tree --icons'
+alias ls='exa --icons -l '
+alias tree='exa --icons--tree '
 alias update='cp -r ~/.config/{hypr,alacritty,kitty,gtk-3.0,nvim,spicetify,zathura} ~/Repos/hypr-dots/config/ && cp ~/.zshrc ~/Repos/hypr-dots/'
 
 # Load a few important annexes, without Turbo

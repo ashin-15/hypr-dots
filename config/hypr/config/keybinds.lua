@@ -10,14 +10,14 @@ hl.bind(mainMod .. " + Escape", hl.dsp.exec_cmd("hyprctl kill"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + ALT + Space", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(noctCall .. "sessionMenu lockAndSuspend"))
+hl.bind(mainMod .. " + M", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(noctCall .. "sessionMenu lockAndSuspend"))
 
 -- Change focus
-hl.bind(mainMod .. " + Left", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + Right", hl.dsp.focus({ direction = "right" }))
-hl.bind(mainMod .. " + Up", hl.dsp.focus({ direction = "up" }))
-hl.bind(mainMod .. " + Down", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
 
 -- Move active window around current workspace
