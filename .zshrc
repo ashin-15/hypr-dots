@@ -80,7 +80,6 @@ if [ -d "$HOME/.cargo/bin" ] ;
 fi
 
 alias ls='exa --icons -l '
-alias tree='exa --icons--tree '
 alias update='cp -r ~/.config/{hypr,alacritty,kitty,gtk-3.0,nvim,spicetify,zathura} ~/Repos/hypr-dots/config/ && cp ~/.zshrc ~/Repos/hypr-dots/'
 
 # Load a few important annexes, without Turbo
@@ -112,3 +111,5 @@ export PATH=/home/ashin/.opencode/bin:$PATH
 
 # Added by codebase-memory-mcp install
 export PATH="/home/ashin/.local/bin:$PATH"
+
+fpath+=~/.zfunc; autoload -Uz compinit; compinit
