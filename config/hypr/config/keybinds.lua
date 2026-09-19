@@ -11,7 +11,7 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 hl.bind(mainMod .. " + ALT + Space", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + M", hl.dsp.layout("togglesplit"))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(noctCall .. "sessionMenu lockAndSuspend"))
+hl.bind("CTRL + SHIFT + L", hl.dsp.exec_cmd(noctCall .. "sessionMenu lockAndSuspend"))
 
 -- Change focus
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "left" }))
@@ -28,8 +28,15 @@ hl.bind(mainMod .. " + SHIFT + Down", hl.dsp.window.move({ direction = "d" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + Right", hl.dsp.window.move({ workspace = "r+1" }))
 hl.bind(mainMod .. " + CONTROL + SHIFT + Left", hl.dsp.window.move({ workspace = "r-1" }))
 
--- Move & Resize with mouse
+-- Vim-style bindings with Shift (H, J, K, L)
+hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.resize({ x = -20, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.window.resize({ x = 20, y = 0, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + K", hl.dsp.window.resize({ x = 0, y = -20, relative = true }), { repeating = true })
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
+
+-- Drag window using right key of mouse
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag())
+-- Resize windows using left key of mouse
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize())
 
 ------------------
