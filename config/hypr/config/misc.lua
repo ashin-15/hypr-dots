@@ -1,6 +1,12 @@
 hl.config({
+	general = {
+		layout = "scrolling",
+	},
 	dwindle = {
 		preserve_split = true,
+	},
+	scrolling = {
+		direction = "right",
 	},
 	misc = {
 		col = {

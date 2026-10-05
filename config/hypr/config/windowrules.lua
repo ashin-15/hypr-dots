@@ -8,6 +8,16 @@ hl.window_rule({
 	pin = true,
 })
 
+hl.workspace_rule({
+	workspace = "1",
+	layout = "scrolling",
+})
+
+hl.workspace_rule({
+	workspace = "2",
+	layout = "dwindle",
+})
+
 -- Apps
 local primaryWorkspace = 2
 

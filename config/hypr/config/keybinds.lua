@@ -14,11 +14,33 @@ hl.bind(mainMod .. " + M", hl.dsp.layout("togglesplit"))
 hl.bind("CTRL + SHIFT + L", hl.dsp.exec_cmd(noctCall .. "sessionMenu lockAndSuspend"))
 
 -- Change focus
-hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "left" }))
-hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + K", hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + J", hl.dsp.focus({ direction = "down" }))
 hl.bind("ALT + Tab", hl.dsp.window.cycle_next())
+
+-- hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }), { workspace = 2 })
+-- hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }), { workspace = 2 })
+-- hl.bind(mainMod .. " + L", hl.dsp.layout("focus r"), { workspace = 1 })
+-- hl.bind(mainMod .. " + H", hl.dsp.layout("focus l"), { workspace = 1 })
+
+local function layout_focus(direction)
+	return function()
+		local workspace = hl.get_active_workspace()
+
+		if not workspace then
+			return
+		end
+
+		if workspace.tiled_layout == "scrolling" then
+			hl.dispatch(hl.dsp.layout("focus " .. direction))
+		elseif workspace.tiled_layout == "dwindle" then
+			hl.dispatch(hl.dsp.focus({ direction = direction }))
+		end
+	end
+end
+
+hl.bind(mainMod .. " + H", layout_focus("l"))
+hl.bind(mainMod .. " + L", layout_focus("r"))
 
 -- Move active window around current workspace
 hl.bind(mainMod .. " + SHIFT + Right", hl.dsp.window.move({ direction = "r" }))

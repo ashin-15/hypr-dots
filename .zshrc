@@ -54,7 +54,7 @@ preexec() { echo -ne '\e[5 q' ;}
 export ANDROID_HOME="$HOME/Android/Sdk"
 
 # PATH setup
-for dir in "$HOME/.local/bin" "$HOME/.local/share/npm/bin" "$HOME/.cargo/bin" "$HOME/.bun/bin" "$HOME/.npm-global/bin" "/home/ashin/.opencode/bin" "/home/ashin/.local/bin" "$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"; do
+for dir in "$HOME/.local/bin" "$HOME/.local/share/npm/bin" "$HOME/.cargo/bin" "$HOME/.bun/bin" "$HOME/.npm-global/bin" "/home/ashin/.local/bin" "$ANDROID_HOME/platform-tools:$ANDROID_HOME/cmdline-tools/latest/bin:$PATH"; do
     [ -d "$dir" ] && PATH="${dir}:$PATH"
 done
 export PATH
@@ -70,6 +70,9 @@ alias update='cp -r ~/.config/{hypr,alacritty,kitty,gtk-3.0,nvim,spicetify,zathu
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+if [ -d "/home/ashin/Waterfox" ]; then
+  rm -rf ~/Waterfox
+fi
 
 # Added by Antigravity CLI installer
 export PATH="/home/ashin/.local/bin:$PATH"
