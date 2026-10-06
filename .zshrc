@@ -62,7 +62,7 @@ export PATH
 
 # Aliases
 alias ls='exa --icons -l'
-alias update='cp -r ~/.config/{hypr,alacritty,kitty,gtk-3.0,nvim,spicetify,zathura} ~/Repos/hypr-dots/config/ && cp ~/.zshrc ~/Repos/hypr-dots/'
+alias update='cp -r ~/.config/{hypr,alacritty,kitty,gtk-3.0,nvim,spicetify,zathura} ~/Repos/hypr-dots/config/ && cp ~/.zshrc ~/Repos/hypr-dots/ && cp -r ~/.agents ~/Repos/hypr-dots/'
 
 # Tool-specific setup
 [ -s "/home/ashin/.bun/_bun" ] && source "/home/ashin/.bun/_bun"
