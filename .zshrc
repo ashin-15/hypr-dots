@@ -30,6 +30,9 @@ zmodload zsh/complist
 _comp_options+=(globdots)
 autoload -Uz compinit && compinit
 
+# better cd
+eval "$(zoxide init zsh)"
+
 # FZF (system-installed)
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -62,7 +65,7 @@ export PATH
 
 # Aliases
 alias ls='exa --icons -l'
-alias update='cp -r ~/.config/{hypr,alacritty,kitty,gtk-3.0,nvim,spicetify,zathura} ~/Repos/hypr-dots/config/ && cp ~/.zshrc ~/Repos/hypr-dots/ && cp -r ~/.agents ~/Repos/hypr-dots/'
+alias update='cp -r ~/.config/{hypr,alacritty,kitty,gtk-3.0,nvim,zathura} ~/Repos/hypr-dots/config/ && cp ~/.zshrc ~/Repos/hypr-dots/ && cp -r ~/.agents ~/Repos/hypr-dots/'
 
 # Tool-specific setup
 [ -s "/home/ashin/.bun/_bun" ] && source "/home/ashin/.bun/_bun"
@@ -76,3 +79,8 @@ fi
 
 # Added by Antigravity CLI installer
 export PATH="/home/ashin/.local/bin:$PATH"
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/home/ashin/.lmstudio/bin"
+# End of LM Studio CLI section
+

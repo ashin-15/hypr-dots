@@ -109,3 +109,24 @@ hl.window_rule({
 
 	no_focus = true,
 })
+
+-- BEGIN Noctalia v5 integration (migration)
+-- Native v5 Settings window.
+hl.window_rule({
+    match = { class = "dev.noctalia.Noctalia" },
+    float = true,
+    size = { 1080, 920 },
+})
+
+-- Native v5 layer namespaces; keep compositor animations from conflicting.
+hl.layer_rule({
+    name = "noctalia",
+    match = {
+        namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+    },
+    no_anim = true,
+    ignore_alpha = 0.5,
+    blur = true,
+    blur_popups = true,
+})
+-- END Noctalia v5 integration (migration)
